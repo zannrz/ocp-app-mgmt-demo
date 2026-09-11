@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>App Mgmt Demo — {{ version }}</title>
+  <style>
+    body {
+      margin: 0; height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: system-ui, sans-serif;
+      background: {{ color }}; color: white;
+      transition: background 0.4s ease;
+    }
+    .card {
+      background: rgba(0,0,0,0.25);
+      padding: 2.5rem 3.5rem; border-radius: 16px;
+      text-align: center; backdrop-filter: blur(4px);
+    }
+    h1 { margin: 0 0 .5rem; font-size: 2.2rem; }
+    .badge {
+      display: inline-block; margin-top: 1rem;
+      padding: .3rem .9rem; border-radius: 999px;
+      background: rgba(255,255,255,0.2); font-weight: 600;
+    }
+    .host { margin-top: 1.2rem; opacity: .8; font-size: .85rem; }
+    .banner {
+      margin-top: 1.5rem; padding: .6rem 1rem;
+      background: #fbbf24; color: #1f2937;
+      border-radius: 8px; font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>{{ message }}</h1>
+    <div class="badge">Version: {{ version }}</div>
+    {% if feature_banner %}
+    <div class="banner">🎉 New feature shipped in this build!</div>
+    {% endif %}
+    <div class="host">pod: {{ hostname }}</div>
+  </div>
+</body>
+</html>
